@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>back_technicalTest.Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\back-technicalTest.Infrastructure\back-technicalTest.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
