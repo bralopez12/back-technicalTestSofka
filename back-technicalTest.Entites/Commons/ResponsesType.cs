@@ -1,13 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace back_technicalTest.Entities.Commons
+﻿namespace back_technicalTest.Entities.Commons
 {
+    /// <summary>
+    /// types of responses of greet
+    /// </summary>
     public enum ResponsesType
     {
+        /// <summary>
+        /// greet response
+        /// </summary>
         Greet = 1,
+        /// <summary>
+        /// say name response
+        /// </summary>
         SayName = 2,
+        /// <summary>
+        /// say good bye response
+        /// </summary>
         SayGoodBye = 3
     }
 }

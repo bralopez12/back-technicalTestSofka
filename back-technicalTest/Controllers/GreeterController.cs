@@ -40,10 +40,8 @@ namespace back_technicalTest_Api.Controllers
         /// </summary>
         /// <param name="greeterDto">The greeter dto.</param>
         /// <returns></returns>
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(406)]
         [HttpPost()]
+        [ProducesResponseType(200, Type = typeof(GreeterResponse))]
         public async Task<IActionResult> ResponseGreet(GreeterDto greeterDto)
         {
                 greeterDto.ResponseType = ResponsesType.Greet;
@@ -51,15 +49,12 @@ namespace back_technicalTest_Api.Controllers
         }
 
         /// <summary>
-        /// Responses the name.
+        /// Responses saying name .
         /// </summary>
         /// <param name="greeterDto">The greeter dto.</param>
         /// <returns></returns>
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(406)]
         [HttpPost()]
-        [ProducesResponseType(200, Type = typeof(string))]
+        [ProducesResponseType(200, Type = typeof(GreeterResponse))]
         public async Task<IActionResult> ResponseName(GreeterDto greeterDto)
         {
             greeterDto.ResponseType = ResponsesType.SayName;
@@ -67,15 +62,12 @@ namespace back_technicalTest_Api.Controllers
         }
 
         /// <summary>
-        /// Responses the say good bye.
+        /// Responses saying good bye.
         /// </summary>
         /// <param name="greeterDto">The greeter dto.</param>
         /// <returns></returns>
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(406)]
         [HttpPost()]
-        [ProducesResponseType(200, Type = typeof(GreeterDto))]
+        [ProducesResponseType(200, Type = typeof(GreeterResponse))]
         public async Task<IActionResult> ResponseSayGoodBye(GreeterDto greeterDto)
         {
             greeterDto.ResponseType = ResponsesType.SayGoodBye;

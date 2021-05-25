@@ -14,22 +14,39 @@ namespace back_technicalTest.Core.UseCases
 {
     public class GreeterUseCase
     {
+        /// <summary>
+        /// The greeter adapter
+        /// </summary>
         private readonly IGreeterAdapter greeterAdapter;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GreeterUseCase"/> class.
+        /// </summary>
+        /// <param name="greeterAdapter">The greeter adapter.</param>
         public GreeterUseCase(IGreeterAdapter greeterAdapter)
         {
             this.greeterAdapter = greeterAdapter;
         }
 
+        /// <summary>
+        /// response with a greet
+        /// </summary>
+        /// <param name="greeterDto">The greeter dto.</param>
+        /// <returns></returns>
+        /// <exception cref="back_technicalTest.Core.Exceptions.NotExistIdiomException">No existe el idioma</exception>
         public async Task<GreeterResponse> Greet(GreeterDto greeterDto)
         {
+            //Selecting the idiom received in enum
             object idiom = null;
             if (!Enum.TryParse(typeof(IdiomType), greeterDto.Idiom, true, out idiom))
                 throw new NotExistIdiomException("No existe el idioma");
-
+            
             GreeterRequest greeterRequest = new GreeterRequest() { IdiomType = (IdiomType)idiom, ResponsesType = greeterDto.ResponseType };
             var greeterResponse = await greeterAdapter.GetGreet(greeterRequest);
+
+            //concatenate name with response
             greeterResponse.Response += " " + greeterDto.Name;
+
             return greeterResponse;
         }
     }
