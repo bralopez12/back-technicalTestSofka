@@ -20,6 +20,6 @@ namespace back_technicalTest.Entites
         /// <value>
         /// The type of the responses.
         /// </value>
-        public ResponsesType ResponsesType{ get; set; }
+        public ResponseType ResponsesType{ get; set; }
     }
 }

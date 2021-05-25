@@ -5,7 +5,7 @@ namespace back_technicalTest.Core.Entities.Interfaces
 {
     public interface IGreet
     {
-        public ResponsesType ResponseType { get; }
+        public ResponseType ResponseType { get; }
         public IdiomType Idiom { get; }
 
         Task<GreeterResponse> Response(GreeterDto greeterDto);

@@ -12,6 +12,6 @@ namespace back_technicalTest.Core.Entities
         public string Idiom { get; set; }
 
         [JsonIgnore]
-        public ResponsesType ResponseType { get; set; }
+        public ResponseType ResponseType { get; set; }
     }
 }

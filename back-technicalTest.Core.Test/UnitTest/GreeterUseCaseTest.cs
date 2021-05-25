@@ -8,7 +8,7 @@ using Moq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace back_technicalTest.Core.Test
+namespace back_technicalTest.Core.Test.UnitTest
 {
     public class GreeterUseCaseTest
     {
@@ -33,7 +33,7 @@ namespace back_technicalTest.Core.Test
                 Response = greet
             };
 
-            var greeterDtoDataTest = new GreeterDto() { Idiom = "spanish", ResponseType = ResponsesType.Greet, Name = "Arturo" };
+            var greeterDtoDataTest = new GreeterDto() { Idiom = "spanish", ResponseType = ResponseType.Greet, Name = "Arturo" };
             mockGreeterAdapter.Setup(m => m.GetGreet(It.IsAny<GreeterRequest>())).ReturnsAsync(greeterResponseDataTest);
             //Act
             var resp = await greeterUseCase.Greet(greeterDtoDataTest);
@@ -54,7 +54,7 @@ namespace back_technicalTest.Core.Test
                 Response = greet
             };
 
-            var greeterDtoDataTest = new GreeterDto() { Idiom = "UnIdioma", ResponseType = ResponsesType.Greet, Name = "Arturo" };
+            var greeterDtoDataTest = new GreeterDto() { Idiom = "UnIdioma", ResponseType = ResponseType.Greet, Name = "Arturo" };
             mockGreeterAdapter.Setup(m => m.GetGreet(It.IsAny<GreeterRequest>())).ReturnsAsync(greeterResponseDataTest);
             //Act
             var resp = await Assert.ThrowsAsync<NotExistIdiomException>(async () => { await greeterUseCase.Greet(greeterDtoDataTest); } );

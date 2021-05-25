@@ -3,7 +3,7 @@
     /// <summary>
     /// types of responses of greet
     /// </summary>
-    public enum ResponsesType
+    public enum ResponseType
     {
         /// <summary>
         /// greet response

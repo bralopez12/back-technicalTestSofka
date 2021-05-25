@@ -1,4 +1,5 @@
 ﻿using back_technicalTest.Core.Entities;
+using back_technicalTest.Core.Exceptions;
 using back_technicalTest.Core.UseCases;
 using back_technicalTest.Entities.Commons;
 using Microsoft.AspNetCore.Mvc;
@@ -44,8 +45,17 @@ namespace back_technicalTest_Api.Controllers
         [ProducesResponseType(200, Type = typeof(GreeterResponse))]
         public async Task<IActionResult> ResponseGreet(GreeterDto greeterDto)
         {
-                greeterDto.ResponseType = ResponsesType.Greet;
+            try
+            {
+                greeterDto.ResponseType = ResponseType.Greet;
                 return new OkObjectResult(await greeterUseCase.Greet(greeterDto));
+            }
+            catch (NotExistIdiomException nei)
+            {
+                _logger.LogError(nei.Message);
+                return NotFound(nei.Message);
+            }
+             
         }
 
         /// <summary>
@@ -57,7 +67,7 @@ namespace back_technicalTest_Api.Controllers
         [ProducesResponseType(200, Type = typeof(GreeterResponse))]
         public async Task<IActionResult> ResponseName(GreeterDto greeterDto)
         {
-            greeterDto.ResponseType = ResponsesType.SayName;
+            greeterDto.ResponseType = ResponseType.SayName;
             return new OkObjectResult(await greeterUseCase.Greet(greeterDto));
         }
 
@@ -70,7 +80,7 @@ namespace back_technicalTest_Api.Controllers
         [ProducesResponseType(200, Type = typeof(GreeterResponse))]
         public async Task<IActionResult> ResponseSayGoodBye(GreeterDto greeterDto)
         {
-            greeterDto.ResponseType = ResponsesType.SayGoodBye;
+            greeterDto.ResponseType = ResponseType.SayGoodBye;
             return new OkObjectResult(await greeterUseCase.Greet(greeterDto));
         }
 

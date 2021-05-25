@@ -9,7 +9,14 @@ namespace back_technicalTest.Infrastructure.Data
 {
     public partial class Idioms
     {
+        public Idioms()
+        {
+            ResponsesGreeter = new HashSet<ResponsesGreeter>();
+        }
+
         public int Code { get; set; }
         public string IdiomName { get; set; }
+
+        public virtual ICollection<ResponsesGreeter> ResponsesGreeter { get; set; }
     }
 }

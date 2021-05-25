@@ -35,7 +35,8 @@ namespace back_technicalTest.Infrastructure.Data
 
             modelBuilder.Entity<ResponsesGreeter>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.Code, e.Idiom })
+                    .HasName("PK_CodeIdiom");
 
                 entity.Property(e => e.Description)
                     .IsRequired()
@@ -48,11 +49,12 @@ namespace back_technicalTest.Infrastructure.Data
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.IdiomNavigation)
-                    .WithMany()
+                    .WithMany(p => p.ResponsesGreeter)
                     .HasForeignKey(d => d.Idiom)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ResponsesGreeter_Idioms");
             });
+
 
             modelBuilder.Entity<ResponsesType>(entity =>
             {
