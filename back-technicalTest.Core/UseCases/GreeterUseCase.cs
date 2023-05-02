@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 
 namespace back_technicalTest.Core.UseCases
 {
-    //Lo quite
     public class GreeterUseCase
     {
         /// <summary>
