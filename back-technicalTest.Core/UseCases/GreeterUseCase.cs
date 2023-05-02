@@ -12,7 +12,10 @@ using System.Threading.Tasks;
 
 namespace back_technicalTest.Core.UseCases
 {
-    //Otra vez lo cambié
+    //Agregue 1
+    //Agregue 2
+    //Agregue 2
+    //Le quite a este marica el comentario
     public class GreeterUseCase
     {
         /// <summary>
