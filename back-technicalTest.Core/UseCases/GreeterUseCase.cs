@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace back_technicalTest.Core.UseCases
 {
-    //Edited Class
+    //Lo quite
     public class GreeterUseCase
     {
         /// <summary>
